@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM anapsix/alpine-java
 MAINTAINER smizy
 
 ARG BUILD_DATE
@@ -38,7 +38,6 @@ RUN set -x \
     && apk --no-cache add \
         bash \
         less \
-        openjdk8-jre \
         python \
         su-exec \
         tar \

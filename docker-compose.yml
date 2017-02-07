@@ -61,6 +61,10 @@ services:
     networks: ["vnet"]
     hostname: coordinator-1.vnet
     image: reto1prestodb
+    depends_on:
+      - hive-server
+      - hive-metastore
+      - hive-metastore-postgresql
     build: 
         context: ./PrestoDB
         args:
@@ -79,6 +83,10 @@ services:
     networks: ["vnet"]
     hostname: worker-1.vnet
     image: reto1prestodb
+    depends_on:
+      - hive-server
+      - hive-metastore
+      - hive-metastore-postgresql
     build: 
         context: ./PrestoDB
         args:
