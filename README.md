@@ -7,3 +7,5 @@ La base de datos PostgreSQL es la misma que contiene el metastore para Hive. Por
 El obetivo es crear un Pull Request a este repositorio con los scripts de creacion de tablas y vista para poner a funcionar los permisos y unas queries de ejemplo de como se accederia a las vistas.
 
 Despues de montarlo todo, me ha parecido que Hive no esta usando el HDFS, si no que almacena los ficheros en disco duro local. A efectos de esta tarea deberia ser completamente transparente, pero habria que mirar que es lo que esta mal en algun momento.
+
+Tengo que reconocer que solo he probado que Presto ve los catalogs Hive y PostgreSQL con un SHOW CATALOGS. Es posible (probable) que haya errores en el acceso a los datos. Si aparecen, los arreglamos juntos.
