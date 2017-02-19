@@ -63,6 +63,7 @@ RUN set -x \
 COPY etc/  ${PRESTO_CONF_DIR}/
 COPY bin/*  /usr/local/bin/
 COPY lib/*  /usr/local/lib/
+COPY conf/* /etc/hadoop/conf/
 
 VOLUME ["${PRESTO_LOG_DIR}", "${PRESTO_NODE_DATA_DIR}"]
 

@@ -18,7 +18,7 @@ services:
       - "8081:8081"
 
   datanode1:
-    image: bde2020/hadoop-namenode:1.0.0-hadoop2.7.1
+    image: bde2020/hadoop-datanode:1.0.0-hadoop2.7.1
     domainname: hadoop
     hostname: datanode1
     container_name: datanode1
@@ -48,6 +48,9 @@ services:
     env_file:
       - ./HDFS/hadoop-hive.env
     networks: ["vnet"]
+    depends_on:
+      - hive-server
+      - hive-metastore-postgresql
     command: /opt/hive/bin/hive --service metastore
 
   hive-metastore-postgresql:
