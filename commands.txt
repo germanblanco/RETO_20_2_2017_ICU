@@ -1,0 +1,24 @@
+HDFS
+mkdir /reto
+# Al reiniciar docker-compose, HDFS puede quedarse bloqueado en "safe mode". Desactivar:
+docker exec -it namenode /bin/bash
+hadoop dfsadmin -safemode leave
+# Borrar los bloques corruptos
+hdfs fsck -delete
+
+HIVE
+create database reto location 'hdfs://namenode:8020/reto';
+create table reto.public_table (
+  field1 string,
+  field2 int
+);
+insert into reto.public_table values ('a', 1);
+insert into reto.public_table values ('b', 2);
+
+POSTGRESQL
+create table reto.grants (
+  user varchar,
+  table varchar,
+  active int
+);
+
